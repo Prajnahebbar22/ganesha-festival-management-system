@@ -1,7 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 public class DatabaseConnection {
 
@@ -18,35 +17,23 @@ public class DatabaseConnection {
             System.out.println("Database connected successfully!");
 
             String sql =
-                    "SELECT donor_name, amount " +
-                    "FROM donations " +
-                    "WHERE amount > ?";
+                    "DELETE FROM donations " +
+                    "WHERE donor_name = ? " +
+                    "AND festival_year = ?";
 
             PreparedStatement statement =
                     connection.prepareStatement(sql);
 
-            statement.setInt(1, 199);
+            statement.setString(1, "Test User");
+            statement.setInt(2, 2026);
 
-            ResultSet resultSet =
-                    statement.executeQuery();
+            int rowsAffected =
+                    statement.executeUpdate();
 
-            System.out.println("\nDonors who donated more than 200:");
+            System.out.println(
+                    "Rows deleted: " + rowsAffected
+            );
 
-            while (resultSet.next()) {
-
-                String donorName =
-                        resultSet.getString("donor_name");
-
-                java.math.BigDecimal amount =
-                        resultSet.getBigDecimal("amount");
-
-                System.out.println(
-                        "Donor: " + donorName +
-                        " | Amount: " + amount
-                );
-            }
-
-            resultSet.close();
             statement.close();
             connection.close();
 
