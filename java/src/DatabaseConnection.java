@@ -1,7 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class DatabaseConnection {
 
@@ -17,13 +17,20 @@ public class DatabaseConnection {
 
             System.out.println("Database connected successfully!");
 
-            String sql = "SELECT donor_name, amount FROM donations";
+            String sql =
+                    "SELECT donor_name, amount " +
+                    "FROM donations " +
+                    "WHERE amount > ?";
 
-            Statement statement = connection.createStatement();
+            PreparedStatement statement =
+                    connection.prepareStatement(sql);
 
-            ResultSet resultSet = statement.executeQuery(sql);
+            statement.setInt(1, 199);
 
-            System.out.println("\nDonation Records:");
+            ResultSet resultSet =
+                    statement.executeQuery();
+
+            System.out.println("\nDonors who donated more than 200:");
 
             while (resultSet.next()) {
 
