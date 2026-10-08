@@ -52,12 +52,19 @@ fetch("http://localhost:8080/api/donations")
 
         data.forEach(function (donation) {
 
-            const donationItem = document.createElement("p");
+            const row = document.createElement("tr");
 
-            donationItem.textContent =
-                donation.donorName + " - ₹" + donation.amount;
+            row.innerHTML = `
+        <td>${donation.donationId}</td>
+        <td>${donation.donorName}</td>
+        <td>₹${donation.amount}</td>
+        <td>${donation.donationType}</td>
+        <td>${donation.paymentMode}</td>
+        <td>${donation.festivalYear}</td>
+        <td>${donation.donationDate}</td>
+    `;
 
-            donationList.appendChild(donationItem);
+            donationList.appendChild(row);
 
         });
     })
