@@ -22,4 +22,8 @@ public class DonationService {
     public Donation saveDonation(Donation donation) {
         return donationRepository.save(donation);
     }
+    public Donation updateDonation(Integer id, Donation donation) {
+       donation.setDonationId(id);
+       return donationRepository.save(donation);
+}
 }

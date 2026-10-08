@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import java.util.List;
 
 @RestController
@@ -28,5 +29,12 @@ public class DonationController {
     @PostMapping
     public Donation saveDonation(@RequestBody Donation donation) {
         return donationService.saveDonation(donation);
+    }
+    @PutMapping("/{id}")
+    public Donation updateDonation(
+            @PathVariable Integer id,
+            @RequestBody Donation donation) {
+
+        return donationService.updateDonation(id, donation);
     }
 }
