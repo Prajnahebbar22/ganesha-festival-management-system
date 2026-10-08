@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ganesha Festival Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Ganesha Festival Management System</h1>
+
+    <p>Welcome to the festival management system.</p>
+
+    <h2>Add Donation</h2>
+
+    <form id="donationForm">
+
+        <label>Donor Name:</label>
+        <input type="text" id="donorName">
+
+        <br><br>
+
+        <label>Amount:</label>
+        <input type="number" id="amount">
+
+        <br><br>
+
+        <label>Donation Type:</label>
+        <select id="donationType">
+            <option>FESTIVAL</option>
+            <option>FOOD</option>
+            <option>ARTI</option>
+        </select>
+
+        <br><br>
+
+        <label>Payment Mode:</label>
+        <select id="paymentMode">
+            <option>CASH</option>
+            <option>UPI</option>
+            <option>BANK</option>
+        </select>
+
+        <br><br>
+
+        <label>Festival Year:</label>
+        <input type="number" id="festivalYear">
+
+        <br><br>
+
+        <label>Remarks:</label>
+        <input type="text" id="remarks">
+
+        <br><br>
+
+        <button type="submit">Add Donation</button>
+
+    </form>
+    <h2>Donations</h2>
+
+    <div id="donationList"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+
