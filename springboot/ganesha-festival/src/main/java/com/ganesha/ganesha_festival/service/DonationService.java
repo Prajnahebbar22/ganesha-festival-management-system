@@ -18,4 +18,8 @@ public class DonationService {
     public List<Donation> getAllDonations() {
         return donationRepository.findAll();
     }
+
+    public Donation saveDonation(Donation donation) {
+        return donationRepository.save(donation);
+    }
 }

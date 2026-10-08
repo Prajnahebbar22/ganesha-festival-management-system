@@ -7,6 +7,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "donations")
 public class Donation {
@@ -20,7 +23,7 @@ public class Donation {
     private String donorName;
 
     @Column(name = "amount")
-    private java.math.BigDecimal amount;
+    private BigDecimal amount;
 
     @Column(name = "donation_type")
     private String donationType;
@@ -29,7 +32,7 @@ public class Donation {
     private String paymentMode;
 
     @Column(name = "donation_date")
-    private java.time.LocalDate donationDate;
+    private LocalDate donationDate = LocalDate.now();
 
     @Column(name = "festival_year")
     private Integer festivalYear;
@@ -53,11 +56,11 @@ public class Donation {
         this.donorName = donorName;
     }
 
-    public java.math.BigDecimal getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(java.math.BigDecimal amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
@@ -77,11 +80,11 @@ public class Donation {
         this.paymentMode = paymentMode;
     }
 
-    public java.time.LocalDate getDonationDate() {
+    public LocalDate getDonationDate() {
         return donationDate;
     }
 
-    public void setDonationDate(java.time.LocalDate donationDate) {
+    public void setDonationDate(LocalDate donationDate) {
         this.donationDate = donationDate;
     }
 
