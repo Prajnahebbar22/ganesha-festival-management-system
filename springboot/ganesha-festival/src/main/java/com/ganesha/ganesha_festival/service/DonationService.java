@@ -25,5 +25,8 @@ public class DonationService {
     public Donation updateDonation(Integer id, Donation donation) {
        donation.setDonationId(id);
        return donationRepository.save(donation);
-}
+    }
+    public void deleteDonation(Integer id) {
+       donationRepository.deleteById(id);
+    }
 }
