@@ -10,10 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import jakarta.validation.Valid;
 import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "http://localhost:5500")
 @RestController
 @RequestMapping("/api/donations")
+
 public class DonationController {
 
     private final DonationService donationService;
@@ -28,13 +32,13 @@ public class DonationController {
     }
 
     @PostMapping
-    public Donation saveDonation(@RequestBody Donation donation) {
+    public Donation saveDonation(@Valid @RequestBody Donation donation) {
         return donationService.saveDonation(donation);
     }
     @PutMapping("/{id}")
     public Donation updateDonation(
             @PathVariable Integer id,
-            @RequestBody Donation donation) {
+            @Valid @RequestBody Donation donation) {
 
         return donationService.updateDonation(id, donation);
     }
