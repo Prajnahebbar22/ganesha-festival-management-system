@@ -1,83 +1,409 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Ganesha Festival Management System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ganesh Utsav | Festival Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Ganesha Festival Management System</h1>
+    <div class="app-layout">
 
-    <p>Welcome to the festival management system.</p>
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
 
-    <h2>Add Donation</h2>
+            <div class="brand">
+                <div class="brand-icon">ॐ</div>
+                <div>
+                    <h2>Ganesh Utsav</h2>
+                    <p>FESTIVAL MANAGEMENT</p>
+                </div>
+            </div>
 
-    <form id="donationForm">
+            <div class="sidebar-label">WORKSPACE</div>
 
-        <label>Donor Name:</label>
-        <input type="text" id="donorName">
+            <nav class="navigation">
+                <a href="#dashboard" class="nav-link active">
+                    <span class="nav-icon">◈</span>
+                    Dashboard
+                </a>
 
-        <br><br>
+                <a href="#donations" class="nav-link">
+                    <span class="nav-icon">₹</span>
+                    Donations
+                </a>
 
-        <label>Amount:</label>
-        <input type="number" id="amount">
+                <a href="#add-donation" class="nav-link">
+                    <span class="nav-icon">＋</span>
+                    Add Donation
+                </a>
 
-        <br><br>
+                <a href="#invitations" class="nav-link">
+                    <span class="nav-icon">✉</span>
+                    Invitations
+                </a>
+            </nav>
 
-        <label>Donation Type:</label>
-        <select id="donationType">
-            <option>FESTIVAL</option>
-            <option>FOOD</option>
-            <option>ARTI</option>
-        </select>
+            <div class="sidebar-bottom">
+                <div class="festival-art">🪔</div>
+                <h3>Celebrate with devotion.</h3>
+                <p>Every contribution makes our celebration brighter.</p>
+                <div class="sidebar-decoration">✦ शुभ गणेशोत्सव ✦</div>
+            </div>
 
-        <br><br>
+            <div class="sidebar-footer">
+                <span class="status-dot"></span>
+                Festival records management
+            </div>
 
-        <label>Payment Mode:</label>
-        <select id="paymentMode">
-            <option>CASH</option>
-            <option>UPI</option>
-            <option>BANK</option>
-        </select>
+        </aside>
 
-        <br><br>
 
-        <label>Festival Year:</label>
-        <input type="number" id="festivalYear">
+        <!-- MAIN CONTENT -->
+        <main class="main-content" id="dashboard">
 
-        <br><br>
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">YOUR FESTIVAL, YOUR COMMUNITY</p>
+                    <h1>Namaste, Organiser <span>🙏</span></h1>
+                    <p class="topbar-subtitle">
+                        Here's what's happening with your festival finances.
+                    </p>
+                </div>
 
-        <label>Remarks:</label>
-        <input type="text" id="remarks">
+                <a href="#add-donation" class="primary-button topbar-button">
+                    <span>＋</span> Add donation
+                </a>
+            </header>
 
-        <br><br>
 
-        <button type="submit">Add Donation</button>
+            <!-- FESTIVAL BANNER -->
+            <section class="festival-banner">
+                <div class="banner-content">
+                    <span class="banner-tag">✦ TOGETHER IN DEVOTION ✦</span>
+                    <h2>May blessings bring us<br>closer together.</h2>
+                    <p>
+                        Every donation tells a story of faith, generosity,
+                        and community.
+                    </p>
+                    <a href="#donations" class="banner-link">
+                        Explore donations <span>→</span>
+                    </a>
+                </div>
 
-    </form>
-    <h2>Donations</h2>
+                <div class="banner-decoration" aria-hidden="true">
+                    <div class="mandala mandala-one"></div>
+                    <div class="mandala mandala-two"></div>
+                    <div class="banner-om">ॐ</div>
+                    <div class="banner-lamp">🪔</div>
+                </div>
+            </section>
 
-    <table id="donationTable">
 
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Donor</th>
-                <th>Amount</th>
-                <th>Type</th>
-                <th>Payment</th>
-                <th>Year</th>
-                <th>Date</th>
-            </tr>
-        </thead>
+            <!-- FINANCIAL SUMMARY -->
+            <section class="section-block">
 
-        <tbody id="donationList">
-        </tbody>
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">FINANCIAL OVERVIEW</p>
+                        <h2>Festival at a glance</h2>
+                    </div>
 
-    </table>
+                    <span class="live-badge">
+                        <span class="status-dot"></span>
+                        Live records
+                    </span>
+                </div>
+
+                <div class="stats-grid">
+
+                    <article class="stat-card stat-total">
+                        <div class="stat-top">
+                            <span class="stat-label">Total donations</span>
+                            <span class="stat-icon">₹</span>
+                        </div>
+                        <h3 id="totalDonations">₹0.00</h3>
+                        <p>All recorded contributions</p>
+                    </article>
+
+                    <article class="stat-card stat-festival">
+                        <div class="stat-top">
+                            <span class="stat-label">Festival donations</span>
+                            <span class="stat-icon">🪔</span>
+                        </div>
+                        <h3 id="festivalDonations">₹0.00</h3>
+                        <p>Contributions for the festival</p>
+                    </article>
+
+                    <article class="stat-card stat-food">
+                        <div class="stat-top">
+                            <span class="stat-label">Food donations</span>
+                            <span class="stat-icon">🍲</span>
+                        </div>
+                        <h3 id="foodDonations">₹0.00</h3>
+                        <p>Contributions for food</p>
+                    </article>
+
+                    <article class="stat-card stat-donors">
+                        <div class="stat-top">
+                            <span class="stat-label">Invitation eligible</span>
+                            <span class="stat-icon">✉</span>
+                        </div>
+                        <h3 id="eligibleDonors">0</h3>
+                        <p>Donations above ₹200</p>
+                    </article>
+
+                </div>
+            </section>
+
+
+            <!-- DONATION FORM -->
+            <section class="section-block" id="add-donation">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">RECORD A CONTRIBUTION</p>
+                        <h2>Add a donation</h2>
+                        <p class="section-description">
+                            Record each contribution to keep your festival accounts organised.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-card">
+
+                    <div class="form-card-heading">
+                        <div class="form-icon">✦</div>
+                        <div>
+                            <h3>Donor information</h3>
+                            <p>Enter the details below.</p>
+                        </div>
+                    </div>
+
+                    <form id="donationForm">
+
+                        <div class="form-grid">
+
+                            <div class="form-field">
+                                <label for="donorName">Donor name <span>*</span></label>
+                                <input
+                                    type="text"
+                                    id="donorName"
+                                    placeholder="Enter donor's full name"
+                                    maxlength="100"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="amount">Donation amount (₹) <span>*</span></label>
+                                <input
+                                    type="number"
+                                    id="amount"
+                                    placeholder="e.g. 501"
+                                    min="0.01"
+                                    step="0.01"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="donationType">Donation category <span>*</span></label>
+                                <select id="donationType" required>
+                                    <option value="FESTIVAL">Festival</option>
+                                    <option value="FOOD">Food</option>
+                                    <option value="ARTI">Arti</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="paymentMode">Payment method <span>*</span></label>
+                                <select id="paymentMode" required>
+                                    <option value="CASH">Cash</option>
+                                    <option value="UPI">UPI</option>
+                                    <option value="BANK">Bank transfer</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="festivalYear">Festival year <span>*</span></label>
+                                <input
+                                    type="number"
+                                    id="festivalYear"
+                                    min="2000"
+                                    max="2100"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-field">
+                                <label for="remarks">Remarks</label>
+                                <input
+                                    type="text"
+                                    id="remarks"
+                                    placeholder="Optional note"
+                                    maxlength="500"
+                                >
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+                            <p><span>*</span> Required fields</p>
+
+                            <button type="reset" class="secondary-button" id="resetFormButton">
+                                Clear form
+                            </button>
+
+                            <button type="submit" class="primary-button" id="submitDonationButton">
+                                <span>＋</span> Save donation
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </section>
+
+
+            <!-- DONATIONS TABLE -->
+            <section class="section-block" id="donations">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR COMMUNITY'S GENEROSITY</p>
+                        <h2>Donation records</h2>
+                        <p class="section-description">
+                            View and manage recorded contributions.
+                        </p>
+                    </div>
+
+                    <span class="record-count" id="recordCount">0 records</span>
+                </div>
+
+                <div class="table-card">
+
+                    <div class="table-toolbar">
+                        <div class="search-box">
+                            <span>⌕</span>
+                            <input
+                                type="search"
+                                id="searchDonations"
+                                placeholder="Search donor name..."
+                                aria-label="Search donations by donor name"
+                            >
+                        </div>
+
+                        <select id="filterDonationType" aria-label="Filter donations by category">
+                            <option value="ALL">All categories</option>
+                            <option value="FESTIVAL">Festival</option>
+                            <option value="FOOD">Food</option>
+                            <option value="ARTI">Arti</option>
+                        </select>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table id="donationTable">
+
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>DONOR</th>
+                                    <th>AMOUNT</th>
+                                    <th>CATEGORY</th>
+                                    <th>PAYMENT</th>
+                                    <th>YEAR</th>
+                                    <th>DATE</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="donationList">
+                                <tr>
+                                    <td colspan="8" class="loading-cell">
+                                        Loading donation records...
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                    <div class="table-footer">
+                        <span id="tableSummary">Your donation records will appear here.</span>
+                        <span>Made with devotion <span class="heart">♥</span></span>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- INVITATIONS -->
+            <section class="section-block" id="invitations">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">CELEBRATING GENEROSITY</p>
+                        <h2>Invitation tracker</h2>
+                        <p class="section-description">
+                            Donors whose recorded contributions exceed ₹200.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="invitation-card">
+                    <div class="invitation-icon">✉</div>
+
+                    <div class="invitation-copy">
+                        <h3>Our festival supporters</h3>
+                        <p>
+                            Keep track of donors eligible for next year's invitation.
+                            Eligibility is calculated from each recorded donation.
+                        </p>
+                    </div>
+
+                    <div class="invitation-count">
+                        <strong id="invitationCount">0</strong>
+                        <span>eligible records</span>
+                    </div>
+                </div>
+
+                <div class="invitation-list-card">
+                    <div class="invitation-list-heading">
+                        <h3>Eligible donations</h3>
+                        <span>Amount &gt; ₹200</span>
+                    </div>
+
+                    <div id="invitationList" class="invitation-list">
+                        <p class="empty-message">Invitation records will appear here.</p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="main-footer">
+                <p>ॐ गण गणपतये नमः</p>
+                <span>Ganesh Utsav Management · Built with devotion and care</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
     <script src="script.js"></script>
-</body>
 
+</body>
 </html>
