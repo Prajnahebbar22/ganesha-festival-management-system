@@ -46,6 +46,11 @@
                     <span class="nav-icon">＋</span>
                     Add Donation
                 </a>
+		
+		<a href="#expenses" class="nav-link">
+    		    <span class="nav-icon">🧾</span>
+    		    Expenses
+		</a>
 
                 <a href="#invitations" class="nav-link">
                     <span class="nav-icon">✉</span>
@@ -345,6 +350,147 @@
 
                 </div>
             </section>
+	    
+<!-- EXPENSES SECTION -->
+<section class="section-block" id="expenses">
+
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">TRACK FESTIVAL SPENDING</p>
+            <h2>Expense management</h2>
+            <p class="section-description">
+                Record and manage the money spent on festival activities.
+            </p>
+        </div>
+
+        <span class="record-count" id="expenseRecordCount">0 records</span>
+    </div>
+
+    <!-- ADD EXPENSE FORM -->
+    <div class="form-card">
+
+        <div class="form-card-heading">
+            <div class="form-icon">₹</div>
+            <div>
+                <h3>Add a new expense</h3>
+                <p>Enter the details of the amount spent.</p>
+            </div>
+        </div>
+
+        <form id="expenseForm">
+
+            <div class="form-grid">
+
+                <div class="form-field">
+                    <label for="expenseName">Expense name *</label>
+                    <input
+                        type="text"
+                        id="expenseName"
+                        placeholder="e.g. Decoration materials"
+                        maxlength="150"
+                        required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="expenseAmount">Amount (₹) *</label>
+                    <input
+                        type="number"
+                        id="expenseAmount"
+                        placeholder="e.g. 2500"
+                        min="0.01"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="expenseCategory">Expense category *</label>
+                    <select id="expenseCategory" required>
+                        <option value="DECORATION">Decoration</option>
+                        <option value="FOOD">Food</option>
+                        <option value="PUJA">Puja materials</option>
+                        <option value="SOUND">Sound and lighting</option>
+                        <option value="TRANSPORT">Transport</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="expenseDate">Expense date *</label>
+                    <input
+                        type="date"
+                        id="expenseDate"
+                        required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="expenseRemarks">Remarks</label>
+                    <input
+                        type="text"
+                        id="expenseRemarks"
+                        placeholder="Optional notes"
+                        maxlength="500"
+                    >
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <p>* Required fields</p>
+
+                <button type="reset" class="secondary-button">
+                    Clear form
+                </button>
+
+                <button type="submit" class="primary-button">
+                    + Save expense
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- EXPENSE RECORDS TABLE -->
+    <div class="section-heading" style="margin-top: 30px;">
+        <div>
+            <p class="eyebrow">SPENDING HISTORY</p>
+            <h2>Expense records</h2>
+            <p class="section-description">
+                Review the expenses recorded by organisers.
+            </p>
+        </div>
+    </div>
+
+    <div class="table-card">
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>EXPENSE</th>
+                        <th>AMOUNT</th>
+                        <th>CATEGORY</th>
+                        <th>DATE</th>
+                        <th>REMARKS</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+
+                <tbody id="expenseList">
+                    <tr>
+                        <td colspan="7" class="loading-cell">
+                            Expense records will appear here.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+<!-- END EXPENSES SECTION -->
 
 
             <!-- INVITATIONS -->
